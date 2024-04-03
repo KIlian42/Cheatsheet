@@ -29,7 +29,7 @@ pip install --upgrade pip
 pip install virtualenv
 ```
 
-###### Mac
+> Mac
 ```
 python3.11 -m venv .venv
 source .venv/bin/activate
@@ -37,12 +37,24 @@ deactivate
 pip install -r requirements.txt
 ```
 
-###### Windows
+> Windows
 ```
 py -3.11 -m venv .venv
 .venv\Scripts\activate.bat
 .venv\Scripts\deactivate.bat
 pip install -r requirements.txt
+```
+
+### Formatting
+
+##### Ruff
+
+```
+pip install ruff
+```
+```
+ruff format .
+ruff check . --fix --select I
 ```
 
 ### Arguments
