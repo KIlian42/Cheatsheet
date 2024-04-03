@@ -1,0 +1,413 @@
+# Python Cheatsheet:
+
+###### Notice: Python 2 add "coding: utf-8" to beginning of script
+
+### Docstring template:
+
+```
+Description:
+----
+Description of function.
+
+Args:
+----
+    parameter1 (list): Raw ECG signal.
+    parameter2 (str): Signal length to which the signal should be padded or truncated.
+
+Returns:
+----
+    parameter3 (list): Padded or truncated signal.
+```
+
+### Pip
+
+```
+pip install --upgrade pip
+```
+##### Install virtualenv
+```
+pip install virtualenv
+```
+
+###### Mac
+```
+python3.11 -m venv .venv
+source .venv/bin/activate
+deactivate
+pip install -r requirements.txt
+```
+
+###### Windows
+```
+py -3.11 -m venv .venv
+.venv\Scripts\activate.bat
+.venv\Scripts\deactivate.bat
+pip install -r requirements.txt
+```
+
+### Arguments
+
+```
+import argparse
+parser = argparse.ArgumentParser(description="ECG classifier")
+parser.add_argument('-d','--dir',type=str,default='training2017',help='the directory of dataset')
+parser.add_argument('-t','--test_set',type=float,default=0.2,help='The percentage of test set')
+args = parser.parse_args()
+my_function(args.dir, test=args.test_set)
+```
+
+### Warnings, logging, error handling and testing
+
+##### Ignore warnings
+```
+import warnings
+warnings.filterwarnings("ignore")
+```
+
+##### Logging
+```
+import logging
+logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger_module1 = logging.getLogger('module1')
+logger_module1.setLevel(logging.INFO)
+logger_module2 = logging.getLogger('module2')
+logger_module2.setLevel(logging.WARNING)
+logger_module1.error("An error occurred: %s", str(e), exc_info=True)
+logger_module2.error("An error occurred: %s", str(e), exc_info=True)
+```
+
+##### Error handling
+```
+try:
+	assert …
+except Exception as e:
+	raise(e)
+```
+For more, see: https://docs.python.org/3/library/exceptions.html
+
+##### Testing
+```
+pip install pytest
+```
+```
+assert x
+```
+
+### Pathes and imports
+
+##### Join path file
+```
+import os
+current_path = os.path.dirname(os.path.abspath(__file__))
+file_name = „file.txt“
+full_file_path = os.path.join(current_path, file_name)
+```
+
+##### Working direction
+```
+import os
+print(os.getcwd())
+print(os.path.dirname(os.path.abspath(__file__)))
+```
+
+##### Imports
+```
+pip install path
+```
+```
+import path
+import sys
+directory = path.Path(__file__).abspath()
+sys.path.append(directory.parent.parent)
+```
+directory.parent -> folder of current file
+directory.parent.parent -> parent folder
+```
+import ..
+```
+
+Try out -> https://stackoverflow.com/questions/30669474/beyond-top-level-package-error-in-relative-import :
+```
+import sys
+sys.path.append("..")
+```
+
+### Files
+
+##### Delete file if exist
+```
+import os
+if os.path.exists(file_path):
+	os.remove(file_path)
+```
+
+##### Open file
+```
+f = open("file.txt", "r", encoding="utf-8")
+data = f.readlines()
+f.close()
+```
+
+##### Write file
+```
+f = open("file.txt", "w", encoding="utf-8")
+f.writelines(data)
+f.close()
+```
+
+##### Write file "with open“
+```
+with open('file.txt', 'w', encoding='utf-8') as file:
+    file.write(html_content)
+```
+
+##### Iterate through files in folder
+```
+import os
+directory = 'src/dataset‘
+for dirpath, dirnames, filenames in os.walk(directory):
+    for filename in filenames:
+        print(os.path.join(dirpath, filename))
+```
+
+### JSON
+
+##### Load file into dict
+```
+import json
+with open(file_path, 'r') as file:
+	data = json.load(file)
+```
+
+##### Load string into dict
+```
+import json
+data = json.loads(str)
+```
+
+##### Save list as JSON
+```
+with open('json_file.json', 'w') as file:
+        json.dump(json_list, file, indent=2)
+```
+
+### Lists & Queue
+
+##### List operators
+```
+lst = [x+x for x in lst]
+```
+
+##### Map list
+```
+data = list(map(lambda x: x.replace("\n", ""), data))
+```
+
+##### Overlap of two lists
+```
+set = set(lst1).intersection(lst2)
+if set:
+	…
+```
+
+##### Sort nested list
+```
+combined = list(zip(lst1, lst2))
+combined.sort(key=lambda x: x[1])
+lst1, lst2 = zip(*combined)
+```
+
+##### Shuffle nested list
+```
+import random
+combined = list(zip(X, Y, Z))
+random.shuffle(combined)
+X, Y, Z = zip(*combined)
+```
+
+##### Count unique values in list
+```
+from collections import Counter
+count = Counter(lst)
+print(count)
+```
+
+##### Extract unique values from list
+```
+Ist = list(set(lst))
+```
+
+##### Count double values in one list
+```
+from collections import Counter
+count = Counter(Ist)
+doubles_count = {item: c for item, c in count.items() if c > 1}
+```
+
+##### Get double values in two lists
+```
+doubles = [item for item in list1 if item in list2]
+```
+
+### Queue
+```
+import queue
+q = queue.Queue()
+q.qsize()
+q.put()
+q.get()
+```
+
+### Pandas
+
+###### Note: Pandas is slow.
+
+##### Read csv
+```
+df = pd.read_csv(file_path)
+for index, row in df.iterrows():
+	column1_value = row["Column1“]
+   	column2_value = row["Column2“]
+```
+##### Access row 3 and column 2 with iloc
+```
+third_row_value = df.iloc[2, 1]
+```
+
+### Time and TQDM
+
+##### Measure time
+```
+from datetime import datetime
+start=datetime.now()
+print(datetime.now()-start)
+```
+
+##### TQDM (for enumerate)
+```
+enumerate(tqdm())
+```
+
+##### TQDM (manually update)
+```
+pbar = tqdm(total=total_number, desc="Load data")
+loop:
+	pbar.update(1)
+```
+
+### Multithreading and Multiprocessing
+
+##### Multiprocessing
+```
+import multiprocessing
+from tqdm import tqdm
+
+def extract_features(input_list, list_index, new_shared_list, lock):
+    for x in tqdm(input_list, desc=f“Process {list_index}", position=list_index, leave=False):
+        try:
+		new_value … do something …
+                with lock:
+                    new_shared_list.extend(new_value)
+        except Exception as e:
+            pass
+
+manager = multiprocessing.Manager()
+all_features = manager.list()
+lock = manager.Lock()
+num_processes = 4 # multiprocessing.cpu_count()
+
+processes = []
+for sublist_index in range(num_processes):
+	p = multiprocessing.Process(target=extract_features, args=(lst[list_index], list_index, new_lst, lock))
+        processes.append(p)
+        p.start()
+
+for process in processes:
+        process.join()
+```
+
+### Regex
+
+##### Remove multiple whitespaces
+```
+new_text = re.sub(" +", " ", text)
+```
+
+##### Remove special characters except a-z, A-Z and whitespace
+```
+new_text = re.sub("[^a-zA-ZäöüÄÖÜß ]", "", text)
+```
+
+### Selenium
+
+##### Tips:
+- Avoid getting blocked -> download pages 
+- Lazy loading -> scroll to bottom
+- Iframes -> Iframe -> driver.switch_to.frame("iframeClassOrID")
+- https://medium.com/@pankaj_pandey/web-scraping-using-python-for-dynamic-web-pages-and-unveiling-hidden-insights-8dbc7da6dd26
+- https://pypi.org/project/selenium-stealth/
+
+##### Save and load html file:
+```
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+page = ""
+options = Options()
+options.add_argument("--headless")
+driver = webdriver.Chrome(options=options)
+driver.get(page)
+html_content = driver.page_source
+with open("src/data/example.html", "w", encoding="utf-8") as file:
+	file.write(html_content)
+driver.get("file:/Users/kiliankramer/Desktop/example.html")
+```
+
+##### Close driver
+```
+driver.close() # closes current window
+driver.quit() # shuts down driver
+```
+
+##### Wait for input
+```
+If driver.find_element(„xpath", "//*[@id="L2AGLb"]"):
+	input(„CAPTCHA…“)
+```
+##### Accept cookies
+```
+driver.find_element("path", "//*[@id="L2AGLb"]").click()
+```
+
+##### Find elements
+```
+driver.find_element(By.XPATH, "//div[@class='link-text padding-s ng-binding ng-scope']") # <- best
+driver.find_element("id", "anyIDname")
+driver.find_element(By.ID, "anyIDname")
+driver.find_element(By.CLASS_NAME, "anyCLASSname")
+(By.tagname, "p")
+```
+
+##### Interact with element
+```
+element.send_keys("input")
+element.click()
+```
+
+##### Get div itself
+```
+inner_html = element.get_attribute("innerHTML") # string
+outer_html = element.get_attribute("outerHTML") # string
+inner_html = element.text
+id = element.get_attribute("id")
+```
+
+##### Some helper queries
+```
+from selenium.webdriver.common.by import By
+element = driver.find_element() and element.find_element() is also possible:
+all_elements = driver.find_elements(By.XPATH, "//*")
+parent_element = element.find_element(By.XPATH, "..")
+child_element = element.find_element(By.XPATH, "./*") # Finds first child element -> find_elements() would fine all child elements of a specific HTML tag
+ancestor_element = element.find_element(By.XPATH, "./preceding::*[1]")
+successor_element = element.find_element(By.XPATH, "./following::*[1]")
+```
