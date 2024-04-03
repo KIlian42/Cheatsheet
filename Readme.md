@@ -2,7 +2,7 @@
 
 ###### Notice: Python 2 add "coding: utf-8" to beginning of script
 
-### Docstring template:
+### Docstring template
 
 ```
 Description:
