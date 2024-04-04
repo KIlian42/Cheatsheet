@@ -1,6 +1,6 @@
 # Python Cheatsheet:
 
-###### Notice: Python 2 add "coding: utf-8" to beginning of script
+###### Note: Python 2 add "coding: utf-8" to beginning of script
 
 ### Docstring template
 
@@ -105,24 +105,10 @@ pip install pytest
 assert x
 ```
 
-### Pathes and imports
-
-##### Join path file
-```
-import os
-current_path = os.path.dirname(os.path.abspath(__file__))
-file_name = „file.txt“
-full_file_path = os.path.join(current_path, file_name)
-```
-
-##### Working direction
-```
-import os
-print(os.getcwd())
-print(os.path.dirname(os.path.abspath(__file__)))
-```
+### Imports and pathes
 
 ##### Imports
+Imports within submodules always are resolved from the the working direction of the executed main script. Submodules only know files within the working direction of the main executed script or within the same folder. To extend the path knowledge from parent folders of the submodule, do the following:
 ```
 pip install path
 ```
@@ -131,17 +117,33 @@ import path
 import sys
 directory = path.Path(__file__).abspath()
 sys.path.append(directory.parent.parent)
+import ..
 ```
 directory.parent -> folder of current file
 directory.parent.parent -> parent folder
-```
-import ..
-```
 
-Try out -> https://stackoverflow.com/questions/30669474/beyond-top-level-package-error-in-relative-import :
+
+Try out: https://stackoverflow.com/questions/30669474/beyond-top-level-package-error-in-relative-import
 ```
 import sys
 sys.path.append("..")
+```
+##### Join path file (relative pathes)
+
+File opening works different than imports, since the relative file reading path starts only from the working direction of the project .venv folder. Also, do not add "/" at the beginning of the relative path, otherwise the path will not get resolved. A better way to open files is by:
+
+```
+import os
+current_path = os.getcwd() # or os.path.dirname(os.path.abspath(__file__))
+file_name = „src/folderX/file.txt“
+full_file_path = os.path.join(current_path, file_name)
+```
+
+##### Working direction
+```
+import os
+print(os.getcwd()) # Working direction (project .venv folder)
+print(os.path.dirname(os.path.abspath(__file__))) # Working direction (current script folder)
 ```
 
 ### Files
@@ -227,6 +229,8 @@ if set:
 combined = list(zip(lst1, lst2))
 combined.sort(key=lambda x: x[1])
 lst1, lst2 = zip(*combined)
+lst1 = list(lst1)
+lst2 = list(lst2)
 ```
 
 ##### Shuffle nested list
@@ -392,6 +396,7 @@ driver.find_element("path", "//*[@id="L2AGLb"]").click()
 
 ##### Find elements
 ```
+from selenium.webdriver.common.by import By
 driver.find_element(By.XPATH, "//div[@class='link-text padding-s ng-binding ng-scope']") # <- best
 driver.find_element("id", "anyIDname")
 driver.find_element(By.ID, "anyIDname")
