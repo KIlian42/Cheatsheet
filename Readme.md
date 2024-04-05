@@ -130,13 +130,14 @@ sys.path.append("..")
 ```
 ##### Join path file (relative pathes)
 
-File opening works different than imports, since the relative file reading path starts only from the working direction of the project .venv folder. Also, do not add "/" at the beginning of the relative path, otherwise the path will not get resolved. A better way to open files is by:
+File opening works different than imports, since the relative file reading path starts only from the working direction of the project .venv folder. Also, do not add "/" at the beginning of the relative path, otherwise the path will not get resolved. A better way to open files is by (also here do not use "/" to join the second path):
 
 ```
 import os
 current_path = os.getcwd() # or os.path.dirname(os.path.abspath(__file__))
 file_name = „src/folderX/file.txt“
 full_file_path = os.path.join(current_path, file_name)
+full_file_path = os.path.join(os.getcwd(), file_name)
 ```
 
 ##### Working direction
@@ -280,7 +281,7 @@ q.get()
 
 ##### Read csv
 ```
-df = pd.read_csv(file_path)
+df = pd.read_csv(file_path, delimiter=";")
 for index, row in df.iterrows():
 	column1_value = row["Column1“]
    	column2_value = row["Column2“]
