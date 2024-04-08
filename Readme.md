@@ -1,6 +1,101 @@
-# Python Cheatsheet:
 
-###### Note: Python 2 add "coding: utf-8" to beginning of script
+# General Cheatsheet:
+
+### End running process
+> Mac
+```
+sudo lsof -i :8000
+sudo kill -9 68102
+```
+
+### Test an API with CURL
+
+##### GET request
+```
+curl http://example.com
+```
+##### POST request
+```
+curl -X POST "http://example.com/api/endpointname" -H "Content-Type: application/json" -d '{"parameter": "Content of parameter"}'
+```
+
+# Git:
+
+##### Create branch
+```
+git branch "…"
+git checkout -b "…"
+```
+
+##### See status
+```
+git status
+```
+
+##### Add all changes for next commit
+```
+git add *
+```
+
+##### Commit changes
+```
+git commit -m "…"
+```
+
+##### Add tag
+```
+git tag -a v0.1.0 -m "v0.1.0“
+```
+
+##### Push/Pull commit
+```
+git push
+git pull
+```
+
+##### Revert all changes
+```
+git reset --hard HEAD
+```
+
+##### Switch branch
+```
+git switch "Name of branch"
+git checkout "Name of branch or document/script"
+```
+
+##### Show Git history
+```
+git log
+git log --oneline
+git log --pretty=format:"%h - %an, %ar : %s"
+git log --graph --decorate --oneline
+```
+
+##### Stash changes
+```
+git stash
+git stash pop 
+git stash apply (stash stays accessable accross branches)
+git stash save "Add a description here"
+git stash list
+git stash apply stash@{0}
+```
+
+##### Merge branch
+Assuming you are currently in the main branch and you want to merge the feature branch into your main branch
+```
+git merge feature_branch
+git pull feature_branch
+```
+
+##### Clone repository
+```
+git clone name_of_repository
+```
+
+
+# Python Cheatsheet:
 
 ### Docstring template
 
@@ -11,12 +106,12 @@ Description of function.
 
 Args:
 ----
-    parameter1 (list): Raw ECG signal.
-    parameter2 (str): Signal length to which the signal should be padded or truncated.
+    parameter1 (list): A list of data.
+    parameter2 (str): A string describing the data.
 
 Returns:
 ----
-    parameter3 (list): Padded or truncated signal.
+    parameter3 (list): Returns edited list.
 ```
 
 ### Pip
@@ -45,6 +140,8 @@ py -3.11 -m venv .venv
 pip install -r requirements.txt
 ```
 
+###### Notice: In Python 2 a "coding: utf-8" should be added to the beginning of a script.
+
 ### Formatting
 
 ##### Ruff
@@ -61,8 +158,8 @@ ruff check . --fix --select I
 
 ```
 import argparse
-parser = argparse.ArgumentParser(description="ECG classifier")
-parser.add_argument('-d','--dir',type=str,default='training2017',help='the directory of dataset')
+parser = argparse.ArgumentParser(description="Some description")
+parser.add_argument('-d','--dir',type=str,default='training2017',help='The directory of the dataset')
 parser.add_argument('-t','--test_set',type=float,default=0.2,help='The percentage of test set')
 args = parser.parse_args()
 my_function(args.dir, test=args.test_set)
