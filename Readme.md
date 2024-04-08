@@ -205,7 +205,7 @@ assert x
 ### Imports and pathes
 
 ##### Imports
-Imports within submodules always are resolved from the the working direction of the executed main script. Submodules only know files within the working direction of the main executed script or within the same folder. To extend the path knowledge from parent folders of the submodule, do the following:
+Imports within submodules always are resolved from the working direction of the executed main script. Submodules only know files within the working direction of the main executed script or within the same folder. To extend the path knowledge from parent folders of the submodule, do the following:
 ```
 pip install path
 ```
