@@ -8,7 +8,7 @@ sudo lsof -i :8000
 sudo kill -9 68102
 ```
 
-### Test an API with CURL
+### Test API with CURL
 
 ##### GET request
 ```
