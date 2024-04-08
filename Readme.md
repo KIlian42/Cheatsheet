@@ -1,22 +1,23 @@
 
 # General Cheatsheet:
 
-### End running process
-> Mac
-```
-sudo lsof -i :8000
-sudo kill -9 68102
-```
-
 ### Test API with CURL
 
 ##### GET request
 ```
 curl http://example.com
 ```
+
 ##### POST request
 ```
 curl -X POST "http://example.com/api/endpointname" -H "Content-Type: application/json" -d '{"parameter": "Content of parameter"}'
+```
+
+##### End running process
+> Mac
+```
+sudo lsof -i :8000
+sudo kill -9 68102
 ```
 
 # Git:
