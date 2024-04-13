@@ -199,9 +199,14 @@ For more, see: https://docs.python.org/3/library/exceptions.html
 ```
 pip install pytest
 ```
+All tests are within /tests directory
+
+conftest.py defines @fixtures
 ```
 assert x
 ```
+
+# Tests
 
 ### Imports and pathes
 
@@ -526,4 +531,30 @@ parent_element = element.find_element(By.XPATH, "..")
 child_element = element.find_element(By.XPATH, "./*") # Finds first child element -> find_elements() would fine all child elements of a specific HTML tag
 ancestor_element = element.find_element(By.XPATH, "./preceding::*[1]")
 successor_element = element.find_element(By.XPATH, "./following::*[1]")
+```
+
+# MongoDB
+
+##### List, start and stop MongoDB instances
+```
+brew services list
+brew services start mongodb/brew/mongodb-community@5.0
+brew services stop mongodb/brew/mongodb-community@5.0
+```
+
+##### Start MongoDB shell
+```
+mongosh
+mongosh "mongodb://localhost:27017"
+quit
+```
+
+##### MongoDB shell commands
+```
+show dbs
+use tutorial
+db.dropDatabase('tutorial')
+db.createCollection('products')
+show collections
+db.dropCollection('products')
 ```
