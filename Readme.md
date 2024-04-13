@@ -206,8 +206,6 @@ conftest.py defines @fixtures
 assert x
 ```
 
-# Tests
-
 ### Imports and pathes
 
 ##### Imports
@@ -533,7 +531,7 @@ ancestor_element = element.find_element(By.XPATH, "./preceding::*[1]")
 successor_element = element.find_element(By.XPATH, "./following::*[1]")
 ```
 
-# MongoDB
+# MongoDB Cheatsheet:
 
 ##### List, start and stop MongoDB instances
 ```
