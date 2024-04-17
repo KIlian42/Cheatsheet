@@ -19,6 +19,12 @@ curl -X POST "http://example.com/api/endpointname" -H "Content-Type: application
 sudo lsof -i :8000
 sudo kill -9 68102
 ```
+# Datasets
+
+https://commoncrawl.org
+https://huggingface.co/datasets
+https://www.kaggle.com/datasets
+https://dumps.wikimedia.org
 
 # Git:
 
@@ -387,9 +393,16 @@ for index, row in df.iterrows():
 	column1_value = row["Column1“]
    	column2_value = row["Column2“]
 ```
+
 ##### Access row 3 and column 2 with iloc
 ```
 third_row_value = df.iloc[2, 1]
+```
+
+##### Print columns and select column
+```
+print(df.columns)
+column = list(df['column_name'])
 ```
 
 ### Time and TQDM
@@ -467,12 +480,16 @@ new_text = re.sub("[^a-zA-ZäöüÄÖÜß ]", "", text)
 
 ##### Save and load html file:
 ```
+pip install selenium
+```
+```
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-page = ""
 options = Options()
 options.add_argument("--headless")
 driver = webdriver.Chrome(options=options)
+
+page = ""
 driver.get(page)
 html_content = driver.page_source
 with open("src/data/example.html", "w", encoding="utf-8") as file:
