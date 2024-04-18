@@ -10,7 +10,7 @@ curl http://example.com
 
 ##### POST request
 ```
-curl -X POST "http://example.com/api/endpointname" -H "accept": "application/json", -H "Content-Type: application/json" -d '{"parameter1": "Content of parameter1", "parameter2": "Content of parameter2"}'
+curl -X POST "http://example.com/api/endpointname" -H "accept": "application/json" -H "Content-Type: application/json" -d '{"parameter1": "Content of parameter1", "parameter2": "Content of parameter2"}'
 ```
 
 ##### End running process
@@ -49,7 +49,7 @@ git add *
 
 ##### Commit changes
 ```
-git commit -m "…"
+git commit -m "First commit"
 ```
 
 ##### Add tag
@@ -229,7 +229,7 @@ directory = path.Path(__file__).abspath()
 sys.path.append(directory.parent.parent)
 import ..
 ```
-directory.parent -> folder of current file
+directory.parent -> folder of current file <br />
 directory.parent.parent -> parent folder
 
 
@@ -586,7 +586,7 @@ show collections
 db.dropCollection('products')
 ```
 
-##### NVM commands
+# Node Version Manager (NVM)
 ```
 brew install nvm
 source $(brew --prefix nvm)/nvm.sh
