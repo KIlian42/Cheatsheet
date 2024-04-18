@@ -287,13 +287,14 @@ f.close()
 ```
 f = open("file.txt", "w", encoding="utf-8")
 f.writelines(data)
+# f.write(data)
 f.close()
 ```
 
 ##### Write file "with open“
 ```
 with open('file.txt', 'w', encoding='utf-8') as file:
-    file.write(html_content)
+    file.writelines(html_content)
 ```
 
 ##### Iterate through files in folder
@@ -337,6 +338,7 @@ lst = [x+x for x in lst]
 ```
 data = list(map(lambda x: x.replace("\n", ""), data))
 ```
+
 ##### Join list
 joined_lst = '; '.join(lst)
 
@@ -432,7 +434,22 @@ df['column_name'] = df['column_name'].astype(str)
 df.to_csv(file_path, sep=';', index=False)
 ```
 
+### Random
+```
+import random
+# Integer between 0 and 2 (0 and 2 included)
+number = random.randint(0, 2)
+# Float between 0 and 2 (0 and 2 included)
+number = random.uniform(0, 2)
+```
+
 ### Time and TQDM
+
+##### Pause
+```
+import time
+time.sleep(2)
+```
 
 ##### Measure time
 ```
