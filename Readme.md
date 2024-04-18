@@ -592,5 +592,7 @@ brew install nvm
 source $(brew --prefix nvm)/nvm.sh
 nvm install 18
 nvm install 21
+nvm list
 nvm use 18
+nvm version
 ```
