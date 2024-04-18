@@ -328,7 +328,7 @@ with open('json_file.json', 'w') as file:
 
 ### List
 
-##### List operators
+##### Create list (inline)
 ```
 lst = [x+x for x in lst]
 ```
@@ -337,6 +337,8 @@ lst = [x+x for x in lst]
 ```
 data = list(map(lambda x: x.replace("\n", ""), data))
 ```
+##### Join list
+joined_lst = '; '.join(lst)
 
 ##### Overlap of two lists
 ```
