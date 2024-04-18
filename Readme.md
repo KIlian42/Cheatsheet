@@ -1,3 +1,11 @@
+#### Navigation
+- [General](#General)
+- [Datasets](#Datasets)
+- [Git](#Git)
+- [Python](#Python) 
+- [Selenium](#Selenium)
+- [NVM](#NVM)
+- [MongoDB](#MongoDB)
 
 # General
 
@@ -211,8 +219,7 @@ For more, see: https://docs.python.org/3/library/exceptions.html
 ```
 pip install pytest
 ```
-All tests are within /tests directory
-
+All tests are within /tests directory <br />
 conftest.py defines @fixtures
 ```
 assert x
@@ -570,6 +577,17 @@ ancestor_element = element.find_element(By.XPATH, "./preceding::*[1]")
 successor_element = element.find_element(By.XPATH, "./following::*[1]")
 ```
 
+# Node Version Manager (NVM)
+```
+brew install nvm
+source $(brew --prefix nvm)/nvm.sh
+nvm install 18
+nvm install 21
+nvm list
+nvm use 18
+nvm version
+```
+
 # MongoDB
 
 ##### List, start and stop MongoDB instances
@@ -594,15 +612,4 @@ db.dropDatabase('tutorial')
 db.createCollection('products')
 show collections
 db.dropCollection('products')
-```
-
-# Node Version Manager (NVM)
-```
-brew install nvm
-source $(brew --prefix nvm)/nvm.sh
-nvm install 18
-nvm install 21
-nvm list
-nvm use 18
-nvm version
 ```
