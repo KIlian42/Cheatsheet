@@ -26,7 +26,7 @@ https://commoncrawl.org <br />
 https://dumps.wikimedia.org
 
 # Git
-##### General
+##### Help
 ```
 git --help
 ```
