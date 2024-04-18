@@ -457,7 +457,7 @@ time.sleep(2)
 ```
 from datetime import datetime
 start=datetime.now()
-print(datetime.now()-start)
+print(f"Duration: {datetime.now()-start}")
 ```
 
 ##### TQDM
@@ -477,6 +477,12 @@ loop:
 ```
 
 ### Multithreading and Multiprocessing
+Count CPUs
+```
+import os
+num_cores = os.cpu_count()
+print("Number of CPUs:", num_cores)
+```
 
 ##### Multiprocessing
 ```
