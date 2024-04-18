@@ -577,7 +577,8 @@ ancestor_element = element.find_element(By.XPATH, "./preceding::*[1]")
 successor_element = element.find_element(By.XPATH, "./following::*[1]")
 ```
 
-# Node Version Manager (NVM)
+# NVM
+Node Version Manager
 ```
 brew install nvm
 source $(brew --prefix nvm)/nvm.sh
