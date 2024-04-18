@@ -10,7 +10,7 @@ curl http://example.com
 
 ##### POST request
 ```
-curl -X POST "http://example.com/api/endpointname" -H "Content-Type: application/json" -d '{"parameter": "Content of parameter"}'
+curl -X POST "http://example.com/api/endpointname" -H "accept": "application/json", -H "Content-Type: application/json" -d '{"parameter1": "Content of parameter1", "parameter2": "Content of parameter2"}'
 ```
 
 ##### End running process
@@ -20,13 +20,16 @@ sudo lsof -i :8000
 sudo kill -9 68102
 ```
 # Datasets
-
-https://commoncrawl.org
-https://huggingface.co/datasets
-https://www.kaggle.com/datasets
+https://huggingface.co/datasets <br />
+https://www.kaggle.com/datasets <br />
+https://commoncrawl.org <br />
 https://dumps.wikimedia.org
 
 # Git:
+##### General
+```
+git --help
+```
 
 ##### Create branch
 ```
@@ -399,10 +402,19 @@ for index, row in df.iterrows():
 third_row_value = df.iloc[2, 1]
 ```
 
-##### Print columns and select column
+##### Print (all), select, drop and convert column
 ```
 print(df.columns)
 column = list(df['column_name'])
+# Inplace will alter df without return a new one and errors will not raise an error if column does not exist:
+df.drop(['column1', 'column2'], axis=1, errors='ignore', inplace=True)
+df['column_name'] = df['column_name'].astype(str)
+```
+
+##### Write dataframe to CSV
+```
+# Disable Index (Extra beginning column for the indexes of the rows)
+df.to_csv(file_path, sep=';', index=False)
 ```
 
 ### Time and TQDM
@@ -572,4 +584,13 @@ db.dropDatabase('tutorial')
 db.createCollection('products')
 show collections
 db.dropCollection('products')
+```
+
+##### NVM commands
+```
+brew install nvm
+source $(brew --prefix nvm)/nvm.sh
+nvm install 18
+nvm install 21
+nvm use 18
 ```
