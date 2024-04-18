@@ -507,10 +507,11 @@ new_text = re.sub("[^a-zA-ZäöüÄÖÜß ]", "", text)
 - https://medium.com/@pankaj_pandey/web-scraping-using-python-for-dynamic-web-pages-and-unveiling-hidden-insights-8dbc7da6dd26
 - https://pypi.org/project/selenium-stealth/
 
-##### Save and load html file:
 ```
 pip install selenium
 ```
+
+##### Save and load html file:
 ```
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -534,8 +535,8 @@ driver.quit() # shuts down driver
 
 ##### Wait for input
 ```
-If driver.find_element(„xpath", "//*[@id="L2AGLb"]"):
-	input(„CAPTCHA…“)
+If driver.find_element("XPATH", "//*[@id="L2AGLb"]"):
+	input("CAPTCHA…")
 ```
 ##### Accept cookies
 ```
