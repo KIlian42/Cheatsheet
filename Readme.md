@@ -236,7 +236,7 @@ directory.parent -> folder of current file <br />
 directory.parent.parent -> parent folder
 
 
-Try out: https://stackoverflow.com/questions/30669474/beyond-top-level-package-error-in-relative-import
+More: https://stackoverflow.com/questions/30669474/beyond-top-level-package-error-in-relative-import
 ```
 import sys
 sys.path.append("..")
@@ -353,6 +353,9 @@ import random
 combined = list(zip(X, Y, Z))
 random.shuffle(combined)
 X, Y, Z = zip(*combined)
+X = list(X)
+Y = list(Y)
+Z = list(Z)
 ```
 
 ##### Count unique values in list
