@@ -316,7 +316,7 @@ with open('json_file.json', 'w') as file:
         json.dump(json_list, file, indent=2)
 ```
 
-### Lists & Queue
+### List
 
 ##### List operators
 ```
@@ -413,7 +413,7 @@ df['column_name'] = df['column_name'].astype(str)
 
 ##### Write dataframe to CSV
 ```
-# Disable Index (Extra beginning column for the indexes of the rows)
+# Disable Index (Extra: do not add column for the indexes of the rows)
 df.to_csv(file_path, sep=';', index=False)
 ```
 
