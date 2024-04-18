@@ -493,7 +493,7 @@ new_text = re.sub("[^a-zA-ZäöüÄÖÜß ]", "", text)
 ##### Tips:
 - Avoid getting blocked -> download pages 
 - Lazy loading -> scroll to bottom
-- Iframes -> Iframe -> driver.switch_to.frame("iframeClassOrID")
+- Iframes -> driver.switch_to.frame("iframeClassOrID")
 - https://medium.com/@pankaj_pandey/web-scraping-using-python-for-dynamic-web-pages-and-unveiling-hidden-insights-8dbc7da6dd26
 - https://pypi.org/project/selenium-stealth/
 
