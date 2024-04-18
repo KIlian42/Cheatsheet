@@ -150,9 +150,12 @@ py -3.11 -m venv .venv
 pip install -r requirements.txt
 ```
 
-###### Notice: In Python 2 a "coding: utf-8" should be added to the beginning of a script.
+### Poetry
+...
 
 ### Formatting
+
+###### Notice: In Python 2 a "coding: utf-8" should be added to the beginning of a script.
 
 ##### Ruff
 
