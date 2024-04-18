@@ -1,5 +1,5 @@
 
-# General Cheatsheet:
+# General
 
 ### Test API with CURL
 
@@ -25,7 +25,7 @@ https://www.kaggle.com/datasets <br />
 https://commoncrawl.org <br />
 https://dumps.wikimedia.org
 
-# Git:
+# Git
 ##### General
 ```
 git --help
@@ -105,7 +105,7 @@ git clone name_of_repository
 ```
 
 
-# Python Cheatsheet:
+# Python
 
 ### Docstring template
 
@@ -426,9 +426,13 @@ start=datetime.now()
 print(datetime.now()-start)
 ```
 
-##### TQDM (for enumerate)
+##### TQDM
 ```
-enumerate(tqdm())
+from tqdm import tqdm
+for i in tqdm(lst):
+    ...
+for index, row in enumerate(tqdm()): # (for enumerate)
+    ...
 ```
 
 ##### TQDM (manually update)
@@ -560,7 +564,7 @@ ancestor_element = element.find_element(By.XPATH, "./preceding::*[1]")
 successor_element = element.find_element(By.XPATH, "./following::*[1]")
 ```
 
-# MongoDB Cheatsheet:
+# MongoDB
 
 ##### List, start and stop MongoDB instances
 ```
