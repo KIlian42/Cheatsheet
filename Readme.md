@@ -390,7 +390,7 @@ q.get()
 
 ### Pandas
 
-###### Note: Pandas is slow.
+###### Note: Pandas is slower, but a powerful tool.
 
 ##### Read csv
 ```
