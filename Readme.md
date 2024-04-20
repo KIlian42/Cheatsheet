@@ -430,6 +430,30 @@ df.drop(['column1', 'column2'], axis=1, errors='ignore', inplace=True)
 df['column_name'] = df['column_name'].astype(str)
 ```
 
+# Drop nans
+```
+# Drop row if specific column is nan
+df.dropna(subset=['column_name'], inplace=True)
+# Drop row if all columns are nan except one
+mask = df.drop(columns=[exclude_column]).isna().all(axis=1)
+df_clean = df[~mask]
+# Drop row if all columns are nan
+df_clean = df.dropna(how='all')
+```
+
+##### Remove doubles in column 
+keep = first, last, False
+```
+df_unique = df.drop_duplicates(subset='ColumnA', keep='last')
+```
+
+##### Insert a column of uuid to position 2
+```
+import uuids
+uuids = [uuid.uuid4() for _ in range(len(df))]
+df.insert(2, 'UUID', uuids)
+```
+
 ##### Write dataframe to CSV
 ```
 # Disable Index (Extra: do not add column for the indexes of the rows)
