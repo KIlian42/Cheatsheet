@@ -441,6 +441,12 @@ df_clean = df[~mask]
 df_clean = df.dropna(how='all')
 ```
 
+# Swap columns
+```
+new_columns = [new_order_columns]
+df = df[new_columns]
+```
+
 ##### Remove doubles in column 
 keep = first, last, False
 ```
@@ -456,7 +462,7 @@ df.insert(2, 'UUID', uuids)
 
 ##### Write dataframe to CSV
 ```
-# Disable Index (Extra: do not add column for the indexes of the rows)
+# Disable Index (do not add column for the indexes of the rows)
 df.to_csv(file_path, sep=';', index=False)
 ```
 
