@@ -430,6 +430,11 @@ df.drop(['column1', 'column2'], axis=1, errors='ignore', inplace=True)
 df['column_name'] = df['column_name'].astype(str)
 ```
 
+# Drop column
+```
+df.drop('ColumnA', axis=1, inplace=True)
+```
+
 # Drop nans
 ```
 # Drop row if specific column is nan
