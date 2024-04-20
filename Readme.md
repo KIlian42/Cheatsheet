@@ -477,6 +477,7 @@ loop:
 ```
 
 ### Multithreading and Multiprocessing
+##### Multiprocessing
 Count CPUs
 ```
 import os
@@ -484,7 +485,6 @@ num_cores = os.cpu_count()
 print("Number of CPUs:", num_cores)
 ```
 
-##### Multiprocessing
 ```
 import multiprocessing
 from tqdm import tqdm
