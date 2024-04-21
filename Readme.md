@@ -41,7 +41,7 @@ https://www.kaggle.com/datasets <br />
 https://commoncrawl.org <br />
 https://dumps.wikimedia.org
 
-##### Further sources
+##### Further links
 https://vast.ai <br />
 https://groq.com <br />
 https://ollama.com <br />
