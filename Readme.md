@@ -1,6 +1,6 @@
 #### Navigation
 - [General](#General)
-- [Datasets](#Datasets)
+- [Links](#Links)
 - [Git](#Git)
 - [Python](#Python) 
 - [Selenium](#Selenium)
@@ -27,11 +27,24 @@ curl -X POST "http://example.com/api/endpointname" -H "accept": "application/jso
 sudo lsof -i :8000
 sudo kill -9 68102
 ```
-# Datasets
+
+# Links
+
+##### LLM leaderboards
+https://artificialanalysis.ai <br />
+https://chat.lmsys.org/?leaderboard <br />
+https://huggingface.co/spaces/mteb/leaderboard <br />
+
+##### Dataset sources
 https://huggingface.co/datasets <br />
 https://www.kaggle.com/datasets <br />
 https://commoncrawl.org <br />
 https://dumps.wikimedia.org
+
+##### Further sources
+https://vast.ai <br />
+https://groq.com <br />
+https://ollama.com <br />
 
 # Git
 ##### Help
@@ -430,12 +443,12 @@ df.drop(['column1', 'column2'], axis=1, errors='ignore', inplace=True)
 df['column_name'] = df['column_name'].astype(str)
 ```
 
-# Drop column
+##### Drop column
 ```
 df.drop('ColumnA', axis=1, inplace=True)
 ```
 
-# Drop nans
+##### Drop nans
 ```
 # Drop row if specific column is nan
 df.dropna(subset=['column_name'], inplace=True)
@@ -446,7 +459,7 @@ df_clean = df[~mask]
 df_clean = df.dropna(how='all')
 ```
 
-# Swap columns
+##### Swap columns
 ```
 new_columns = [new_order_columns]
 df = df[new_columns]
