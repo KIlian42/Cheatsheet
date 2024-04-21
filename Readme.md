@@ -573,7 +573,7 @@ new_text = re.sub(" +", " ", text)
 new_text = re.sub("[^a-zA-ZäöüÄÖÜß ]", "", text)
 ```
 
-### Selenium
+# Selenium
 
 ##### Tips:
 - Avoid getting blocked -> download pages 
