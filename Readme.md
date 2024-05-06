@@ -1,13 +1,14 @@
 #### Navigation
-- [General](#General)
-- [Links](#Links)
+- [Curl](#Curl)
+- [Nvidia](#Nvidia)
 - [Git](#Git)
 - [Python](#Python) 
 - [Selenium](#Selenium)
 - [NVM](#NVM)
 - [MongoDB](#MongoDB)
+- [Links](#Links)
 
-# General
+# Curl
 
 ### Test API with CURL
 
@@ -28,18 +29,11 @@ sudo lsof -i :8000
 sudo kill -9 68102
 ```
 
-# Links
+# Nvidia
 
-##### LLM leaderboards
-https://artificialanalysis.ai <br />
-https://chat.lmsys.org/?leaderboard <br />
-https://huggingface.co/spaces/mteb/leaderboard <br />
-
-##### Dataset sources
-https://huggingface.co/datasets <br />
-https://www.kaggle.com/datasets <br />
-https://commoncrawl.org <br />
-https://dumps.wikimedia.org
+1. Quadro -> (24, 48) GB vram <br />
+2. A100 -> (48, 96) GB vram <br />
+3 ...
 
 ##### Further links
 https://vast.ai <br />
@@ -692,3 +686,16 @@ db.createCollection('products')
 show collections
 db.dropCollection('products')
 ```
+
+# Links
+
+##### LLM leaderboards
+https://artificialanalysis.ai <br />
+https://chat.lmsys.org/?leaderboard <br />
+https://huggingface.co/spaces/mteb/leaderboard <br />
+
+##### Dataset sources
+https://huggingface.co/datasets <br />
+https://www.kaggle.com/datasets <br />
+https://commoncrawl.org <br />
+https://dumps.wikimedia.org
