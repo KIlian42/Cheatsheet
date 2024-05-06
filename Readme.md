@@ -9,9 +9,6 @@
 
 # General
 
-### Managae Github keys for private repositories
-https://docs.github.com/en/enterprise-server@3.9/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#:~:text=creating%20GitHub%20Apps.%22-,Creating%20a%20personal%20access%20token,Click%20Generate%20new%20token.
-
 ### Test API with CURL
 
 ##### GET request
@@ -48,6 +45,8 @@ https://dumps.wikimedia.org
 https://vast.ai <br />
 https://groq.com <br />
 https://ollama.com <br />
+https://github.com/settings/personal-access-tokens  <br />
+see: https://docs.github.com/en/enterprise-server@3.9/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#:~:text=creating%20GitHub%20Apps.%22-,Creating%20a%20personal%20access%20token,Click%20Generate%20new%20token. <br />
 
 # Git
 ##### Help
