@@ -1,5 +1,5 @@
 #### Navigation
-- [Curl](#Curl)
+- [General](#General)
 - [Nvidia](#Nvidia)
 - [Git](#Git)
 - [Python](#Python) 
@@ -8,7 +8,14 @@
 - [MongoDB](#MongoDB)
 - [Links](#Links)
 
-# Curl
+# General
+
+### Environment variables
+Set environment variale
+> Mac
+```
+export MYVARIABLE=123
+```
 
 ### Test API with CURL
 
