@@ -38,9 +38,11 @@ sudo kill -9 68102
 
 # Nvidia
 
-1. Quadro -> (24, 48) GB vram <br />
-2. A100 -> (48, 96) GB vram <br />
-3 ...
+1. T4 -> 16 GB vram <br />
+2. V100 -> 16 GB vram <br />
+3. L2 -> 24 GB vram <br />
+4. Quadro -> (24, 48) GB vram <br />
+5. A100 -> (48, 96) GB vram <br />
 
 ##### Further links
 https://vast.ai <br />
@@ -136,7 +138,7 @@ git clone name_of_repository
 ```
 Description:
 ----
-Description of function.
+Description of function. This is '''bold'''. This is ''italic''.
 
 Args:
 ----
@@ -145,7 +147,11 @@ Args:
 
 Returns:
 ----
-    parameter3 (list): Returns edited list.
+    variable1 (list): Edited list.
+
+Raises:
+----
+    KeyError: Raises an exception.
 ```
 
 ### Pip
