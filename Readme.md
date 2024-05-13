@@ -44,13 +44,6 @@ sudo kill -9 68102
 4. Quadro -> (24, 48) GB vram <br />
 5. A100 -> (48, 96) GB vram <br />
 
-##### Further links
-https://vast.ai <br />
-https://groq.com <br />
-https://ollama.com <br />
-https://github.com/settings/personal-access-tokens  <br />
-see: https://docs.github.com/en/enterprise-server@3.9/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#:~:text=creating%20GitHub%20Apps.%22-,Creating%20a%20personal%20access%20token,Click%20Generate%20new%20token. <br />
-
 # Git
 ##### Help
 ```
@@ -712,3 +705,11 @@ https://huggingface.co/datasets <br />
 https://www.kaggle.com/datasets <br />
 https://commoncrawl.org <br />
 https://dumps.wikimedia.org
+
+
+##### Further links
+https://vast.ai <br />
+https://groq.com <br />
+https://ollama.com <br />
+https://github.com/settings/personal-access-tokens  <br />
+see: https://docs.github.com/en/enterprise-server@3.9/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#:~:text=creating%20GitHub%20Apps.%22-,Creating%20a%20personal%20access%20token,Click%20Generate%20new%20token. <br />
