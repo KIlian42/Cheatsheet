@@ -8,6 +8,8 @@
 - [MongoDB](#MongoDB)
 - [Links](#Links)
 
+![joshua-coleman-kFRKvJQtNHg-unsplash](https://github.com/KIlian42/Cheatsheet/assets/57774167/81efef7e-409f-4ee1-9c45-eae36f1f02d6)
+
 # General
 
 ### Environment variables
@@ -38,9 +40,9 @@ sudo kill -9 68102
 
 ##### Vue Git & Cloudflare deployment
 Tips:<br />
-Vue: When creating Git repo do not forgot to push hidden files.<br />
+Vue: When creating a new Git repo for a Vue project not forgot to push also hidden files (to view them press "Comman+Shift+."). Otherwise git clone & npm install will fail when setting up the project.<br /><br />
 Cloudflare deployment:<br />
-1. Just pushing updates to Git will trigger automatically cloudbuild in Cloudflare. Expect logs in left menu tab under Workers&Pages). Copy the new url endpoint (i.e. "....pages.dev"). <br />
+1. Just pushing updates to Git will trigger automatically the cloudbuild in Cloudflare. Expect logs in left menu tab under Workers&Pages to see if the deployment progress fails. Copy the new url endpoint (i.e. "....pages.dev"). <br />
 2. Click in the left menu tab "Websites" (first tab) and choose website (middle). Click in left menu tab "DNS". Replace the new url endpoint in the DNS configuration file. 
 
 # Nvidia
