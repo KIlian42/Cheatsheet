@@ -5,6 +5,7 @@
 ### Docstring template
 
 ```
+"""
 Description:
 ----
 Description of function.
@@ -17,6 +18,7 @@ Args:
 Returns:
 ----
     parameter3 (list): Padded or truncated signal.
+"""
 ```
 
 ### Pip
@@ -218,6 +220,11 @@ lst = [x+x for x in lst]
 data = list(map(lambda x: x.replace("\n", ""), data))
 ```
 
+##### Transpose list
+```
+data = [list(row) for row in zip(*data)]
+```
+
 ##### Overlap of two lists
 ```
 set = set(lst1).intersection(lst2)
@@ -240,6 +247,9 @@ import random
 combined = list(zip(X, Y, Z))
 random.shuffle(combined)
 X, Y, Z = zip(*combined)
+X = list(X)
+Y = list(Y)
+Z = list(Z)
 ```
 
 ##### Count unique values in list
@@ -282,13 +292,30 @@ q.get()
 ##### Read csv
 ```
 df = pd.read_csv(file_path, delimiter=";")
+```
+##### Drop nan
+```
+df.dropna(inplace=True)
+```
+##### Iterate rows and columns
+```
 for index, row in df.iterrows():
 	column1_value = row["Column1“]
    	column2_value = row["Column2“]
 ```
+```
+for column in df.columns:
+    print(column, df[column].head()) 
+for column_name, data in df.items():
+    print(column_name, data.head())  # Example operation
+```
 ##### Access row 3 and column 2 with iloc
 ```
 third_row_value = df.iloc[2, 1]
+```
+##### Convert column to list
+```
+column_list = df['column_name'].tolist()
 ```
 
 ### Time and TQDM
