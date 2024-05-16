@@ -36,6 +36,13 @@ sudo lsof -i :8000
 sudo kill -9 68102
 ```
 
+##### Vue Git & Cloudflare deployment
+Tips:<br />
+Vue: When creating Git repo do not forgot to push hidden files.
+Cloudflare deployment:<br />
+1. Just pushing updates to Git will trigger automatically cloudbuild in Cloudflare. Expect logs in left menu tab under Workers&Pages). Copy the new url endpoint (i.e. "....pages.dev"). <br />
+2. Click in the left menu tab "Websites" (first tab) and choose website (middle). Click in left menu tab "DNS". Replace the new url endpoint in the DNS configuration file. 
+
 # Nvidia
 
 1. T4 -> 16 GB vram <br />
