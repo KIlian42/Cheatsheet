@@ -118,11 +118,21 @@ git merge feature_branch
 git pull feature_branch
 ```
 
+##### Delete branch
+Local branch (-d safe delete, -D force delete)
+```
+git branch -d feature-branch
+git branch -D feature-branch
+```
+Remote branch
+```
+git push origin --delete feature-branch
+```
+
 ##### Clone repository
 ```
 git clone name_of_repository
 ```
-
 
 # Python
 
