@@ -1,6 +1,140 @@
-# Python Cheatsheet:
+#### Navigation
+- [General](#General)
+- [Nvidia](#Nvidia)
+- [Git](#Git)
+- [Python](#Python) 
+- [Selenium](#Selenium)
+- [NVM](#NVM)
+- [MongoDB](#MongoDB)
+- [Links](#Links)
 
-###### Note: Python 2 add "coding: utf-8" to beginning of script
+# General
+
+### Environment variables
+Set environment variale
+> Mac
+```
+export MYVARIABLE=123
+```
+
+### Test API with CURL
+
+##### GET request
+```
+curl http://example.com
+```
+
+##### POST request
+```
+curl -X POST "http://example.com/api/endpointname" -H "accept": "application/json" -H "Content-Type: application/json" -d '{"parameter1": "Content of parameter1", "parameter2": "Content of parameter2"}'
+```
+
+##### End running process
+> Mac
+```
+sudo lsof -i :8000
+sudo kill -9 68102
+```
+
+# Nvidia
+
+1. T4 -> 16 GB vram <br />
+2. V100 -> 16 GB vram <br />
+3. L2 -> 24 GB vram <br />
+4. Quadro -> (24, 48) GB vram <br />
+5. A100 -> (48, 96) GB vram <br />
+
+# Git
+##### Help
+```
+git --help
+```
+
+##### Create branch
+```
+git branch "…"
+git checkout -b "…"
+```
+
+##### See status
+```
+git status
+```
+
+##### Add all changes for next commit
+```
+git add *
+```
+
+##### Commit changes
+```
+git commit -m "First commit"
+```
+
+##### Add tag
+```
+git tag -a v0.1.0 -m "v0.1.0“
+```
+
+##### Push/Pull commit
+```
+git push
+git pull
+```
+
+##### Revert all changes
+```
+git reset --hard HEAD
+```
+
+##### Switch branch
+```
+git switch "Name of branch"
+git checkout "Name of branch or document/script"
+```
+
+##### Show Git history
+```
+git log
+git log --oneline
+git log --pretty=format:"%h - %an, %ar : %s"
+git log --graph --decorate --oneline
+```
+
+##### Stash changes
+```
+git stash
+git stash pop 
+git stash apply (stash stays accessable accross branches)
+git stash save "Add a description here"
+git stash list
+git stash apply stash@{0}
+```
+
+##### Merge branch
+Assuming you are currently in the main branch and you want to merge the feature branch into your main branch
+```
+git merge feature_branch
+git pull feature_branch
+```
+
+##### Delete branch
+Local branch (-d safe delete, -D force delete)
+```
+git branch -d feature-branch
+git branch -D feature-branch
+```
+Remote branch
+```
+git push origin --delete feature-branch
+```
+
+##### Clone repository
+```
+git clone name_of_repository
+```
+
+# Python
 
 ### Docstring template
 
@@ -8,17 +142,20 @@
 """
 Description:
 ----
-Description of function.
+Description of function. This is '''bold'''. This is ''italic''.
 
 Args:
 ----
-    parameter1 (list): Raw ECG signal.
-    parameter2 (str): Signal length to which the signal should be padded or truncated.
+    parameter1 (list): A list of data.
+    parameter2 (str): A string describing the data.
 
 Returns:
 ----
-    parameter3 (list): Padded or truncated signal.
-"""
+    variable1 (list): Edited list.
+
+Raises:
+----
+    KeyError: Raises an exception.
 ```
 
 ### Pip
@@ -47,7 +184,12 @@ py -3.11 -m venv .venv
 pip install -r requirements.txt
 ```
 
+### Poetry
+...
+
 ### Formatting
+
+###### Notice: In Python 2 a "coding: utf-8" should be added to the beginning of a script.
 
 ##### Ruff
 
@@ -63,8 +205,8 @@ ruff check . --fix --select I
 
 ```
 import argparse
-parser = argparse.ArgumentParser(description="ECG classifier")
-parser.add_argument('-d','--dir',type=str,default='training2017',help='the directory of dataset')
+parser = argparse.ArgumentParser(description="Some description")
+parser.add_argument('-d','--dir',type=str,default='training2017',help='The directory of the dataset')
 parser.add_argument('-t','--test_set',type=float,default=0.2,help='The percentage of test set')
 args = parser.parse_args()
 my_function(args.dir, test=args.test_set)
@@ -103,6 +245,8 @@ For more, see: https://docs.python.org/3/library/exceptions.html
 ```
 pip install pytest
 ```
+All tests are within /tests directory <br />
+conftest.py defines @fixtures
 ```
 assert x
 ```
@@ -110,7 +254,7 @@ assert x
 ### Imports and pathes
 
 ##### Imports
-Imports within submodules always are resolved from the the working direction of the executed main script. Submodules only know files within the working direction of the main executed script or within the same folder. To extend the path knowledge from parent folders of the submodule, do the following:
+Imports within submodules always are resolved from the working direction of the executed main script. Submodules only know files within the working direction of the main executed script or within the same folder. To extend the path knowledge from parent folders of the submodule, do the following:
 ```
 pip install path
 ```
@@ -121,11 +265,11 @@ directory = path.Path(__file__).abspath()
 sys.path.append(directory.parent.parent)
 import ..
 ```
-directory.parent -> folder of current file
+directory.parent -> folder of current file <br />
 directory.parent.parent -> parent folder
 
 
-Try out: https://stackoverflow.com/questions/30669474/beyond-top-level-package-error-in-relative-import
+More: https://stackoverflow.com/questions/30669474/beyond-top-level-package-error-in-relative-import
 ```
 import sys
 sys.path.append("..")
@@ -169,13 +313,14 @@ f.close()
 ```
 f = open("file.txt", "w", encoding="utf-8")
 f.writelines(data)
+# f.write(data)
 f.close()
 ```
 
 ##### Write file "with open“
 ```
 with open('file.txt', 'w', encoding='utf-8') as file:
-    file.write(html_content)
+    file.writelines(html_content)
 ```
 
 ##### Iterate through files in folder
@@ -208,9 +353,9 @@ with open('json_file.json', 'w') as file:
         json.dump(json_list, file, indent=2)
 ```
 
-### Lists & Queue
+### List
 
-##### List operators
+##### Process list (inline)
 ```
 lst = [x+x for x in lst]
 ```
@@ -218,6 +363,11 @@ lst = [x+x for x in lst]
 ##### Map list
 ```
 data = list(map(lambda x: x.replace("\n", ""), data))
+```
+
+##### Join list
+```
+joined_lst = '; '.join(lst)
 ```
 
 ##### Transpose list
@@ -287,7 +437,7 @@ q.get()
 
 ### Pandas
 
-###### Note: Pandas is slow.
+###### Note: Pandas is slower, but a powerful tool.
 
 ##### Read csv
 ```
@@ -313,23 +463,29 @@ for column_name, data in df.items():
 ```
 third_row_value = df.iloc[2, 1]
 ```
-##### Convert column to list
-```
-column_list = df['column_name'].tolist()
-```
 
 ### Time and TQDM
+
+##### Pause
+```
+import time
+time.sleep(2)
+```
 
 ##### Measure time
 ```
 from datetime import datetime
 start=datetime.now()
-print(datetime.now()-start)
+print(f"Duration: {datetime.now()-start}")
 ```
 
-##### TQDM (for enumerate)
+##### TQDM
 ```
-enumerate(tqdm())
+from tqdm import tqdm
+for i in tqdm(lst):
+    ...
+for index, row in enumerate(tqdm()): # (for enumerate)
+    ...
 ```
 
 ##### TQDM (manually update)
@@ -340,8 +496,14 @@ loop:
 ```
 
 ### Multithreading and Multiprocessing
-
 ##### Multiprocessing
+Count CPUs
+```
+import os
+num_cores = os.cpu_count()
+print("Number of CPUs:", num_cores)
+```
+
 ```
 import multiprocessing
 from tqdm import tqdm
@@ -382,23 +544,28 @@ new_text = re.sub(" +", " ", text)
 new_text = re.sub("[^a-zA-ZäöüÄÖÜß ]", "", text)
 ```
 
-### Selenium
+# Selenium
 
 ##### Tips:
 - Avoid getting blocked -> download pages 
 - Lazy loading -> scroll to bottom
-- Iframes -> Iframe -> driver.switch_to.frame("iframeClassOrID")
+- Iframes -> driver.switch_to.frame("iframeClassOrID")
 - https://medium.com/@pankaj_pandey/web-scraping-using-python-for-dynamic-web-pages-and-unveiling-hidden-insights-8dbc7da6dd26
 - https://pypi.org/project/selenium-stealth/
+
+```
+pip install selenium
+```
 
 ##### Save and load html file:
 ```
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-page = ""
 options = Options()
 options.add_argument("--headless")
 driver = webdriver.Chrome(options=options)
+
+page = ""
 driver.get(page)
 html_content = driver.page_source
 with open("src/data/example.html", "w", encoding="utf-8") as file:
@@ -414,8 +581,8 @@ driver.quit() # shuts down driver
 
 ##### Wait for input
 ```
-If driver.find_element(„xpath", "//*[@id="L2AGLb"]"):
-	input(„CAPTCHA…“)
+If driver.find_element("XPATH", "//*[@id="L2AGLb"]"):
+	input("CAPTCHA…")
 ```
 ##### Accept cookies
 ```
@@ -456,3 +623,62 @@ child_element = element.find_element(By.XPATH, "./*") # Finds first child elemen
 ancestor_element = element.find_element(By.XPATH, "./preceding::*[1]")
 successor_element = element.find_element(By.XPATH, "./following::*[1]")
 ```
+
+# NVM
+Node Version Manager
+```
+brew install nvm
+source $(brew --prefix nvm)/nvm.sh
+nvm install 18
+nvm install 21
+nvm list
+nvm use 18
+nvm version
+```
+
+# MongoDB
+
+##### List, start and stop MongoDB instances
+```
+brew services list
+brew services start mongodb/brew/mongodb-community@5.0
+brew services stop mongodb/brew/mongodb-community@5.0
+```
+
+##### Start MongoDB shell
+```
+mongosh
+mongosh "mongodb://localhost:27017"
+quit
+```
+
+##### MongoDB shell commands
+```
+show dbs
+use tutorial
+db.dropDatabase('tutorial')
+db.createCollection('products')
+show collections
+db.dropCollection('products')
+```
+
+# Links
+
+##### LLM leaderboards
+https://artificialanalysis.ai <br />
+https://chat.lmsys.org/?leaderboard <br />
+https://huggingface.co/spaces/mteb/leaderboard <br />
+
+##### Dataset sources
+https://huggingface.co/datasets <br />
+https://www.kaggle.com/datasets <br />
+https://commoncrawl.org <br />
+https://dumps.wikimedia.org
+
+
+##### Further links
+https://vast.ai <br />
+https://groq.com <br />
+https://ollama.com <br />
+https://github.com/settings/personal-access-tokens  <br />
+see: https://docs.github.com/en/enterprise-server@3.9/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#:~:text=creating%20GitHub%20Apps.%22-,Creating%20a%20personal%20access%20token,Click%20Generate%20new%20token. <br />
