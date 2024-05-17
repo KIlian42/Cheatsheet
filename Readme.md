@@ -40,9 +40,9 @@ sudo kill -9 68102
 
 1. T4 -> 16 GB vram <br />
 2. V100 -> 16 GB vram <br />
-3. L2 -> 24 GB vram <br />
-4. Quadro -> (24, 48) GB vram <br />
-5. A100 -> (48, 96) GB vram <br />
+3. L2, L4 -> 24 GB vram <br />
+4. RTX Quadro 8000 -> (24, 48) GB vram <br />
+5. A100, H100 -> (40, 80) GB vram <br />
 
 # Git
 ##### Help
