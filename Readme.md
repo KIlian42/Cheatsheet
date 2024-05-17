@@ -8,6 +8,8 @@
 - [MongoDB](#MongoDB)
 - [Links](#Links)
 
+![joshua-coleman-kFRKvJQtNHg-unsplash](https://github.com/KIlian42/Cheatsheet/assets/57774167/81efef7e-409f-4ee1-9c45-eae36f1f02d6)
+
 # General
 
 ### Environment variables
@@ -35,6 +37,13 @@ curl -X POST "http://example.com/api/endpointname" -H "accept": "application/jso
 sudo lsof -i :8000
 sudo kill -9 68102
 ```
+
+##### Vue Git & Cloudflare deployment
+Tips:<br />
+Vue: When creating a new Git repo for a Vue project not forgot to push also hidden files (to view them press "Comman+Shift+."). Otherwise git clone & npm install will fail when setting up the project.<br /><br />
+Cloudflare deployment:<br />
+1. Just pushing updates to Git will trigger automatically the cloudbuild in Cloudflare. Expect logs in left menu tab under Workers&Pages to see if the deployment progress fails. Copy the new url endpoint (i.e. "....pages.dev"). <br />
+2. Click in the left menu tab "Websites" (first tab) and choose website (middle). Click in left menu tab "DNS". Replace the new url endpoint in the DNS configuration file. 
 
 # Nvidia
 
@@ -139,6 +148,7 @@ git clone name_of_repository
 ### Docstring template
 
 ```
+"""
 Description:
 ----
 Description of function. This is '''bold'''. This is ''italic''.
@@ -369,6 +379,11 @@ data = list(map(lambda x: x.replace("\n", ""), data))
 joined_lst = '; '.join(lst)
 ```
 
+##### Transpose list
+```
+data = [list(row) for row in zip(*data)]
+```
+
 ##### Overlap of two lists
 ```
 set = set(lst1).intersection(lst2)
@@ -436,73 +451,26 @@ q.get()
 ##### Read csv
 ```
 df = pd.read_csv(file_path, delimiter=";")
+```
+##### Drop nan
+```
+df.dropna(inplace=True)
+```
+##### Iterate rows and columns
+```
 for index, row in df.iterrows():
 	column1_value = row["Column1“]
    	column2_value = row["Column2“]
 ```
-
+```
+for column in df.columns:
+    print(column, df[column].head()) 
+for column_name, data in df.items():
+    print(column_name, data.head())  # Example operation
+```
 ##### Access row 3 and column 2 with iloc
 ```
 third_row_value = df.iloc[2, 1]
-```
-
-##### Print (all), select, drop and convert column
-```
-print(df.columns)
-column = list(df['column_name'])
-# Inplace will alter df without return a new one and errors will not raise an error if column does not exist:
-df.drop(['column1', 'column2'], axis=1, errors='ignore', inplace=True)
-df['column_name'] = df['column_name'].astype(str)
-```
-
-##### Drop column
-```
-df.drop('ColumnA', axis=1, inplace=True)
-```
-
-##### Drop nans
-```
-# Drop row if specific column is nan
-df.dropna(subset=['column_name'], inplace=True)
-# Drop row if all columns are nan except one
-mask = df.drop(columns=[exclude_column]).isna().all(axis=1)
-df_clean = df[~mask]
-# Drop row if all columns are nan
-df_clean = df.dropna(how='all')
-```
-
-##### Swap columns
-```
-new_columns = [new_order_columns]
-df = df[new_columns]
-```
-
-##### Remove doubles in column 
-keep = first, last, False
-```
-df_unique = df.drop_duplicates(subset='ColumnA', keep='last')
-```
-
-##### Insert a column of uuid to position 2
-```
-import uuids
-uuids = [uuid.uuid4() for _ in range(len(df))]
-df.insert(2, 'UUID', uuids)
-```
-
-##### Write dataframe to CSV
-```
-# Disable Index (do not add column for the indexes of the rows)
-df.to_csv(file_path, sep=';', index=False)
-```
-
-### Random
-```
-import random
-# Integer between 0 and 2 (0 and 2 included)
-number = random.randint(0, 2)
-# Float between 0 and 2 (0 and 2 included)
-number = random.uniform(0, 2)
 ```
 
 ### Time and TQDM
