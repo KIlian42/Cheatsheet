@@ -17,6 +17,7 @@ Set environment variale
 > Mac
 ```
 export MYVARIABLE=123
+echo $MYVARIABLE
 ```
 
 ### Test API with CURL
