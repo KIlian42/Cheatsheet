@@ -39,15 +39,20 @@ sudo lsof -i :8000
 sudo kill -9 68102
 ```
 
-##### Make & delete file
+##### Make folder, make file & delete file/folder
 > Mac
 ```
-mkdir myfile
-rm -r myfile
+mkdir myfolder
+touch myfile.txt
+rm -r myfolder myfile.txt
 ```
 
 ##### Vim & Nano
-...
+> Mac
+```
+vim myfile.txt
+nano myfile.txt
+```
 
 ##### Vue Git & Cloudflare deployment
 Tips:<br />
