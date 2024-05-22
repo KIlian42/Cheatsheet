@@ -47,7 +47,7 @@ touch myfile.txt
 rm -r myfolder myfile.txt
 ```
 
-##### Vim & Nano
+##### Vim & nano
 > Mac
 ```
 vim myfile.txt
