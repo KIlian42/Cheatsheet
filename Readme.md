@@ -38,12 +38,16 @@ curl -X POST "http://example.com/api/endpointname" -H "accept": "application/jso
 sudo lsof -i :8000
 sudo kill -9 68102
 ```
+
 ##### Make & delete file
 > Mac
 ```
 mkdir myfile
 rm -r myfile
 ```
+
+##### Vim & Nano
+...
 
 ##### Vue Git & Cloudflare deployment
 Tips:<br />
