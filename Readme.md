@@ -39,6 +39,21 @@ sudo lsof -i :8000
 sudo kill -9 68102
 ```
 
+##### Make folder, make file & delete file/folder
+> Mac
+```
+mkdir myfolder
+touch myfile.txt
+rm -r myfolder myfile.txt
+```
+
+##### Vim & nano
+> Mac
+```
+vim myfile.txt
+nano myfile.txt
+```
+
 ##### Vue Git & Cloudflare deployment
 Tips:<br />
 Vue: When creating a new Git repo for a Vue project not forgot to push also hidden files (to view them press "Comman+Shift+."). Otherwise git clone & npm install will fail when setting up the project.<br /><br />
