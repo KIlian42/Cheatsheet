@@ -83,7 +83,8 @@ git commit -m "First commit"
 
 ##### Add tag
 ```
-git tag -a v0.1.0 -m "v0.1.0“
+git tag -a v0.1.0 -m "v0.1.0" or git tag -a v0.1.1 -m "v0.1.1-new-feature-description"
+git push --follow-tags
 ```
 
 ##### Push/Pull commit
