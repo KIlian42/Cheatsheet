@@ -1,6 +1,7 @@
 ruff==0.4.5
 torch==2.2.2
 tensorflow==2.16.1
+keras==3.3.3
 requests==2.31.0
 pandas==2.2.2
 uvicorn==0.29.0
