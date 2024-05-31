@@ -558,6 +558,14 @@ for process in processes:
         process.join()
 ```
 
+### Print
+Without new line
+```
+print("Hello,", end=" ")
+print("world!")
+```
+
+
 ### Regex
 
 ##### Remove multiple whitespaces
