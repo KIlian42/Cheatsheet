@@ -1,13 +1,15 @@
 import pandas as pd
 
-
-
-
 def main():
     df = pd.read_csv("dataset.csv", delimiter=";")
 
     # => All column names
     columns = df.columns
+    print(columns)
+
+     # => Convert specific columns to list
+    title = list(df['title'])
+    description = list(df['notes'])
 
     # => Iterate table
     for index, row in df.iterrows():
@@ -25,10 +27,6 @@ def main():
 
     # => Convert column to specific type
     df['column_name'] = df['column_name'].astype(str)
-
-    # => Convert specific columns to list
-    title = list(df['title'])
-    description = list(df['notes'])
 
     # => Drop nans
     # Drop row if specific column is nan

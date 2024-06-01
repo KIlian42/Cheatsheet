@@ -517,7 +517,7 @@ for index, row in enumerate(tqdm()): # (for enumerate)
 
 ##### TQDM (manually update)
 ```
-pbar = tqdm(total=total_number, desc="Load data")
+pbar = tqdm(total=total_number, desc="Load data", position=0, leave=True)
 loop:
 	pbar.update(1)
 ```
