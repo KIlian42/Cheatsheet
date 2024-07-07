@@ -452,6 +452,12 @@ doubles_count = {item: c for item, c in count.items() if c > 1}
 ```
 doubles = [item for item in list1 if item in list2]
 ```
+### Dict
+
+##### Reverse dict
+```
+reversed_dict = dict(map(reversed, original_dict.items()))
+```
 
 ### Queue
 ```
