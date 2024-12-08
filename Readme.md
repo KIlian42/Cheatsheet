@@ -711,6 +711,7 @@ https://chat.lmsys.org/?leaderboard <br />
 https://huggingface.co/spaces/mteb/leaderboard <br />
 
 ##### Dataset sources
+https://huggingface.co/blog/Pclanglais/common-corpus <br />
 https://huggingface.co/datasets <br />
 https://www.kaggle.com/datasets <br />
 https://commoncrawl.org <br />
